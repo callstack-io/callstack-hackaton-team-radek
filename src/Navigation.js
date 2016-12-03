@@ -10,6 +10,8 @@ import {
   TabNavigationItem,
 } from '@exponent/ex-navigation';
 
+import ParkingSpot from "./scenes/ParkingSpot/ParkingSpot";
+
 export default class Navigation extends Component {
   static route = {
     navigationBar: {
@@ -30,11 +32,7 @@ export default class Navigation extends Component {
             style={styles.row}
             selectedStyle={styles.selectedTab}
             >
-            <View style={styles.tabWrap}>
-              <Text>
-                Parking spot
-              </Text>
-            </View>
+            <ParkingSpot distanceMargin={100} />
           </TabNavigationItem>
 
           <TabNavigationItem
