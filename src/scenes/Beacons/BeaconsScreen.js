@@ -58,7 +58,7 @@ export default class BeaconsScreen extends Component {
     componentDidMount() {
         DeviceEventEmitter.addListener('beaconsDidRange', (data) => {
             this.setState({
-              dataSource: this.state.dataSource.cloneWithRows(data.beacons)
+              dataSource: data.beacons
             });
         });
     }
