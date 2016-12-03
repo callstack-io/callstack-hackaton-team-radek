@@ -11,6 +11,7 @@ import {
 } from '@exponent/ex-navigation';
 
 import BeaconsScreen from './scenes/Beacons/BeaconsScreen';
+import ParkingSpot from "./scenes/ParkingSpot/ParkingSpot";
 
 export default class Navigation extends Component {
   static route = {
@@ -31,11 +32,7 @@ export default class Navigation extends Component {
             title="Parking spot"
             selectedStyle={styles.selectedTab}
             >
-            <View style={styles.tabWrap}>
-              <Text>
-                Parking spot
-              </Text>
-            </View>
+            <ParkingSpot distanceMargin={100} />
           </TabNavigationItem>
 
           <TabNavigationItem
