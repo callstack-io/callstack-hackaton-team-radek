@@ -49,12 +49,10 @@ export default class Navigation extends Component {
         
           <TabNavigationItem
             id="beacons"
-            title="Beacons Screen"
+            title="Toilets"
             selectedStyle={styles.selectedTab}
-            >
-            <View style={styles.tabWrap}>
-              <BeaconsScreen style={styles.tabWrap}/>
-            </View>
+          >
+            <BeaconsScreen style={styles.tabWrap}/>
           </TabNavigationItem>
         </TabNavigation>
       </View>

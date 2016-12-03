@@ -20,12 +20,12 @@ const majorIDs = [38488, 32301];
 const beaconsData = [
     {
         major: 38488,
-        name: 'Toilet 01',
+        name: 'Beacon - Toilet 01',
         description: 'Second floor, next to the elevator'
     },
     {
         major: 32301,
-        name: 'Toilet 02',
+        name: 'Beacon - Toilet 02',
         description: 'First floor, next to the kitchen'
     }
 ];
@@ -91,6 +91,14 @@ export default class BeaconsScreen extends Component {
                 closestBeacon = beacon;
             }
         });
+
+        if(!closestBeacon) {
+            return (
+                <View style={styles.beaconData}>
+                    <Text style={styles.beaconText}>No Beacons Found</Text>
+                </View>
+            )
+        }
         
         return (
             <View style={[styles.beaconData, styles[closestBeacon.beaconClass]]}>
@@ -115,13 +123,13 @@ export default class BeaconsScreen extends Component {
             Beacons.detectIBeacons();
 
             Beacons
-              .startRangingBeaconsInRegion(region.identifier, region.uuid)
-              .then(
-                () => console.log('Beacons ranging started succesfully')
-              )
-              .catch(
-                error => console.log(`Beacons ranging not started, error: ${error}`)
-              );
+                .startRangingBeaconsInRegion(region.identifier, region.uuid)
+                .then(
+                    () => console.log('Beacons ranging started succesfully')
+                )
+                .catch(
+                    error => console.log(`Beacons ranging not started, error: ${error}`)
+                );
         }
 
         DeviceEventEmitter.addListener('beaconsDidRange', (data) => {
@@ -136,6 +144,8 @@ const styles = StyleSheet.create({
     beaconData: {
         flex: 1,
         padding: 20,
+        justifyContent: 'center',
+        alignItems: 'center',
     },
     beaconimmediate: {
         backgroundColor: '#14e881',
