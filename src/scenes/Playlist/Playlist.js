@@ -17,23 +17,23 @@ function parseJSON(response) {
 }
 
 function doFetchList() {
-  return fetch("http://b5503d31.eu.ngrok.io/player/list")
+  return fetch("https://b5503d31.eu.ngrok.io/player/list")
     .then(checkStatus)
     .then(parseJSON);
 }
 
 function doUpvote(slug) {
-  return fetch(`http://b5503d31.eu.ngrok.io/player/up/${slug}`, { method: "POST" })
+  return fetch(`https://b5503d31.eu.ngrok.io/player/up/${slug}`, { method: "POST" })
     .then(checkStatus);
 }
 
 function doPlay(slug) {
-  return fetch("http://b5503d31.eu.ngrok.io/player/play", { method: "POST" })
+  return fetch("https://b5503d31.eu.ngrok.io/player/play", { method: "POST" })
     .then(checkStatus);
 }
 
 function doStop(slug) {
-  return fetch("http://b5503d31.eu.ngrok.io/player/stop", { method: "POST" })
+  return fetch("https://b5503d31.eu.ngrok.io/player/stop", { method: "POST" })
     .then(checkStatus);
 }
 
