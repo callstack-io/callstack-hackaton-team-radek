@@ -114,12 +114,14 @@ export default class BeaconsScreen extends Component {
         } else {
             Beacons.detectIBeacons();
 
-            try {
-              Beacons.startRangingBeaconsInRegion(region.uuid);
-              console.log(`Beacons ranging started succesfully!`)
-            } catch (err) {
-              console.log(`Beacons ranging not started, error: ${error}`)
-            }
+            Beacons
+              .startRangingBeaconsInRegion(region.identifier, region.uuid)
+              .then(
+                () => console.log('Beacons ranging started succesfully')
+              )
+              .catch(
+                error => console.log(`Beacons ranging not started, error: ${error}`)
+              );
         }
 
         DeviceEventEmitter.addListener('beaconsDidRange', (data) => {
