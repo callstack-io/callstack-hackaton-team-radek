@@ -13,6 +13,7 @@ import {
 import BeaconsScreen from './scenes/Beacons/BeaconsScreen';
 import ParkingSpot from "./scenes/ParkingSpot/ParkingSpot";
 import QRCode from './scenes/QRCode/QRCode'
+import Playlist from "./scenes/Playlist/Playlist";
 
 export default class Navigation extends Component {
   static route = {
@@ -32,7 +33,7 @@ export default class Navigation extends Component {
             id="first"
             title="Parking spot"
             selectedStyle={styles.selectedTab}
-            >
+          >
             <ParkingSpot distanceMargin={100} />
           </TabNavigationItem>
 
@@ -56,6 +57,20 @@ export default class Navigation extends Component {
             <BeaconsScreen style={styles.tabWrap}/>
           </TabNavigationItem>
 
+            <View style={styles.tabWrap}>
+              <BeaconsScreen style={styles.tabWrap}/>
+            </View>
+          </TabNavigationItem>
+
+          <TabNavigationItem
+            id="playlist"
+            title="Playlist"
+            selectedStyle={styles.selectedTab}
+          >
+            <View style={styles.tabWrap}>
+              <Playlist />
+            </View>
+          </TabNavigationItem>
         </TabNavigation>
       </View>
     );
