@@ -41,12 +41,19 @@ export default class Navigation extends Component {
             title="QR Code"
             selectedStyle={styles.selectedTab}
             >
-            <QRCode data={{"schedule": {
-              "wojteg": {"from": "01.01.2017","to": "07.01.2017"},
-        "dratwa": {"from": "02.12.2016","to": "14.12.2016"},
-        "ferran": {"from": "15.01.2017","to": "21.01.2017"},
-        "pawlucci": {"from": "22.01.2017","to": "31.01.2017"}
-      }}}/>
+              <QRCode data={{"schedule": {
+                "wojteg": {"from": "01.01.2017","to": "07.01.2017"},
+                "dratwa": {"from": "02.12.2016","to": "14.12.2016"},
+                "ferran": {"from": "15.01.2017","to": "21.01.2017"},
+                "pawlucci": {"from": "22.01.2017","to": "31.01.2017"}
+              }}}/>
+          </TabNavigationItem>
+          <TabNavigationItem
+            id="beacons"
+            title="Toilets"
+            selectedStyle={styles.selectedTab}
+          >
+            <BeaconsScreen style={styles.tabWrap}/>
           </TabNavigationItem>
 
         </TabNavigation>
