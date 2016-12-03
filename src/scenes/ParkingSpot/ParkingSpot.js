@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { View, Text, StyleSheet } from "react-native";
+import { View, Text, StyleSheet, Image } from "react-native";
 
 class ParkingSpot extends Component {  
   state = {
@@ -53,11 +53,13 @@ class ParkingSpot extends Component {
       >
         {this.state.spotFree ?
           <View>
-            <Text>Spot free</Text>
+            <Image style={styles.image} source={require("./assets/smile.png")} />
+            <Text style={styles.status}>Spot is FREE!</Text>
           </View>
           :
           <View>
-            <Text>Fuck you!</Text>
+            <Image style={styles.image} source={require("./assets/cry.png")} />
+            <Text style={styles.status}>Some moron took it!</Text>
           </View>
         }
       </View>
@@ -76,6 +78,15 @@ const styles = StyleSheet.create({
   },
   spotTaken: {
     backgroundColor: "#ff4f4f",
+  },
+  image: {
+    marginBottom: 20,
+  },
+  status: {
+    textAlign: "center",
+    fontSize: 26,
+    fontWeight: "bold",
+    color: "#000"
   },
 });
 

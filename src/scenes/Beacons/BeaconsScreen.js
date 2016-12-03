@@ -4,18 +4,40 @@ import {
   StyleSheet,
   View,
   Text,
-  DeviceEventEmitter
+  DeviceEventEmitter,
+  ListView,
 } from 'react-native';
 
 import Beacons from 'react-native-ibeacon';
 
 export default class BeaconsScreen extends Component {
+    constructor(props) {
+        super(props);
+
+        this.state = {
+            dataSource: null
+        }
+    }
+
     render() {
+        const { dataSource } =  this.state;
+
+        let dataSourceList = null;
+        if(dataSource) {
+            dataSourceList = dataSource.map((data) => {
+                console.log('data: ', data);
+                return (
+                    <Text>{ data }</Text>
+                )
+            });
+        }
+
         return (
             <View>
                 <Text>
-                    Becons Screen
+                  All beacons in the area: 
                 </Text>
+                { dataSourceList }
             </View>
         )
     }
@@ -34,6 +56,11 @@ export default class BeaconsScreen extends Component {
     }
 
     componentDidMount() {
-        
+        DeviceEventEmitter.addListener('beaconsDidRange', (data) => {
+            this.setState({
+              dataSource: data.beacons
+            });
+        });
     }
 }
+
