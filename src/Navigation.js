@@ -10,6 +10,8 @@ import {
   TabNavigationItem,
 } from '@exponent/ex-navigation';
 
+import BeaconsScreen from './scenes/Beacons/BeaconsScreen';
+
 export default class Navigation extends Component {
   static route = {
     navigationBar: {
@@ -27,7 +29,6 @@ export default class Navigation extends Component {
           <TabNavigationItem
             id="first"
             title="Parking spot"
-            style={styles.row}
             selectedStyle={styles.selectedTab}
             >
             <View style={styles.tabWrap}>
@@ -40,13 +41,22 @@ export default class Navigation extends Component {
           <TabNavigationItem
             id="second"
             title="QR Code"
-            style={styles.row}
             selectedStyle={styles.selectedTab}
             >
             <View style={styles.tabWrap}>
               <Text>
                 QR Code
               </Text>
+            </View>
+          </TabNavigationItem>
+        
+          <TabNavigationItem
+            id="beacons"
+            title="Beacons Screen"
+            selectedStyle={styles.selectedTab}
+            >
+            <View style={styles.tabWrap}>
+              <BeaconsScreen style={styles.tabWrap}/>
             </View>
           </TabNavigationItem>
         </TabNavigation>
